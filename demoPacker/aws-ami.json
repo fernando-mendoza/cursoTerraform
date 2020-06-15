@@ -4,7 +4,7 @@
 		"access_key": "{{user `aws_access_key`}}",
 		"secret_key": "{{user `ws_secret_access_key`}}",
 		"region": "us-east-2",
-		"source_ami": "812083501456",
+		"source_ami": "ami-08ee2516c7709ea48",
 		"source_ami_filter": {
 			"owners": ["812083501456"],
 			"most_recent": true
@@ -25,7 +25,7 @@
 	},
 	{
 		"type": "shell",
-		"inline":["demoPacker/instalar-docker.sh"]
+		"script": "./instalar-docker.sh"
 	}
 	]
 }
