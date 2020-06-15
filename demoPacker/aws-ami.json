@@ -1,0 +1,31 @@
+{
+	"builders":[{
+		"type": "amazon-ebs",
+		"access_key": "{{user `aws_access_key`}}",
+		"secret_key": "{{user `ws_secret_access_key`}}",
+		"region": "us-east-2",
+		"source_ami": "812083501456",
+		"source_ami_filter": {
+			"owners": ["812083501456"],
+			"most_recent": true
+		},
+		"instance_type": "t2.micro",
+		"ssh_username": "centos",
+		"ami_name": "demo packer"
+
+	}],
+	"provisioners":[{
+		"type":"file",
+		"source": "./packer-key.pub",
+		"destination": "~/.ssh/"
+	},
+	{
+		"type": "shell",
+		"inline": ["cat ~/.ssh/packer-key.pub >> ~/.ssh/authorized_keys"]
+	},
+	{
+		"type": "shell",
+		"inline":["demoPacker/instalar-docker.sh"]
+	}
+	]
+}
