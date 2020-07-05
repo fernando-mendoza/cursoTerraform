@@ -9,3 +9,9 @@ variable "instance_type"{
 variable "tags"{
         description="Tags for you instance created"
 }
+
+variable "sg_name"{
+}
+
+variable "ingress_rules"{
+}
